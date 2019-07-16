@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/demo.css">
+    <script type="text/javascript" src="js/jquery-easyui-1.6.10/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-easyui-1.6.10/jquery.easyui.min.js"></script>
+
+
+</head>
+<body>
+
+<!--<div style="margin:20px 0;"></div>-->
+<div class="easyui-layout" style="width:1300px;height:900px;">
+    <div data-options="region:'north'" style="height:70px">
+   <table>
+    <tr>
+        <td width="50px"></td>
+        <td width="100px"><img src="imge/001.png" width="90px" height="50px"></td>
+        <td width="300px"><h2>“伴我汽车”管理平台</h2></td>
+        <td width="200px"></td>
+        <td width="200px">时间：<span th:text="${date2}"></span></td>
+        <td width="200px">用户：<span th:text="${name2}"></span></td>
+        <td width="300px">所属角色：<span th:text="${roleName2}"></span></td>
+        <td width="200px"><a href="index"><button>退出</button></a></td>
+        <td width="200px"></td>
+    </tr>
+   </table>
+    </div>
+
+    <div data-options="region:'west',split:true" title="" style="width:200px;">
+        <div class="easyui-accordion" data-options="selected:false,fit:true,border:false">
+
+            <div title="会员管理" style="padding:10px;">
+                <a href="huiyuanguanli"><button style="width: 200px">会员管理</button></a>
+            </div>
+            <div title="资讯管理" data-options="selected:false" style="padding:20px;">
+                <a href="caogaoxiang"><button style="width: 200px">草稿箱</button></a><br/>
+                <a href="zixunshenhe"><button style="width: 200px">资讯审核</button></a><br/>
+                <a href="zixunfabu"><button style="width: 200px">资讯发布</button></a><br/>
+                <a href="zixunliebiao"><button style="width: 200px">资讯列表</button></a><br/>
+            </div>
+            <div title="标签定义" style="padding:20px">
+                <a href="biaoqiandingyi"><button style="width: 200px">标签定义</button></a><br/>
+            </div>
+            <div title="车型库管理" style="padding:20px">
+                <a href="pingpaiguanli"><button style="width: 200px">品牌管理</button></a><br/>
+                <a href="changshangguanli"><button style="width: 200px">厂商管理</button></a><br/>
+                <a href="chexiguanli"><button style="width: 200px">车系管理</button></a><br/>
+                <a href="chekuanguanli"><button style="width: 200px">车款管理</button></a><br/>
+                <a href="canshufengleiguanli"><button style="width: 200px">参数分类管理</button></a><br/>
+                <a href="canshuguanli"><button style="width: 200px">参数管理</button></a><br/>
+            </div>
+            <div title="自有商品管理" style="padding:20px">
+                <a href="ziyoushangpingguanli"><button style="width: 200px">自有商品管理</button></a><br/>
+            </div>
+            <div title="活动管理" style="padding:20px">
+                <a href=" huodongliebiao"><button style="width: 200px"> 活动列表</button></a><br/>
+                <a href="tuijianhuodong"><button style="width: 200px">推荐活动</button></a><br/>
+                <a href="leixinguanli"><button style="width: 200px">类型管理</button></a><br/>
+                <a href="qudaoguanli"><button style="width: 200px">渠道管理</button></a><br/>
+            </div>
+            <div title="消息管理" style="padding:20px">
+                <a href="xiaoxiguanli"><button style="width: 200px">消息管理</button></a><br/>
+            </div>
+            <div title="标签管理" style="padding:20px">
+                <a href="biaoqianguanli"><button style="width: 200px">标签管理</button></a><br/>
+            </div>
+            <div title="角色管理" style="padding:20px">
+                <a href="jiaoseguanli"><button style="width: 200px">角色管理</button></a><br/>
+            </div>
+            <div title="管理员列表" style="padding:20px">
+                <a href="guanliyuanliebiao"><button style="width: 200px">管理员列表</button></a><br/>
+            </div>
+            <div title="操作日志" style="padding:20px">
+                <a href="caozuorizhi"><button style="width: 200px">操作日志</button></a><br/>
+            </div>
+            <div title="个人中心" style="padding:20px">
+                <a href="gerenzhongxin"><button style="width: 200px">个人中心</button></a><br/>
+            </div>
+
+        </div>
+    </div>
+    <div data-options="region:'center',title:'',iconCls:'icon-ok'">
+        <br/>&nbsp&nbsp&nbsp&nbsp<&nbsp个人中心：<br/><br/>
+        <hr/>
+        <div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+            <div title="个人资料" style="padding:5px">
+                <form action="xiugaiziliao" method="post">
+                    <table>
+                    <tr th:each="sysUser:${sysUsers}">
+                        <td>姓名：<span th:text="${sysUser.nickname}"></span></td>
+                    </tr>
+                    <tr th:each="sysUser:${sysUsers}">
+                        <td>个人账号：<span th:text="${sysUser.username}"></span></td>
+                    </tr>
+                    <tr th:each="sysUser:${sysUsers}">
+                        <td>手机号：<input name="account" th:value="${sysUser.account}"/></td>
+                    </tr>
+                    <tr th:each="sysUser:${sysUsers}">
+                        <td>所属角色：<span th:text="${sysUser.nickname}"></td>
+                    </tr>
+                    <tr th:each="sysUser:${sysUsers}">
+                        <td>邮箱：<input name="email" th:value="${sysUser.email}"/></td>
+                    </tr>
+                    <tr th:each="sysUser:${sysUsers}">
+                        <td>所属部门：<span th:text="${sysUser.dept}"></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit">保存</button></td>
+                    </tr>
+                    </table>
+                </form>
+            </div>
+            <div title="修改密码" style="padding:5px">
+                <form action="xiugaimima" method="post">
+                    旧密码：<input name="oldPassword" type="password"/><br/>
+                    新密码：<input name="newPassword" type="password"/><br/>
+                    确认新密码：<input name="newPassword2" type="password"/><br/>
+                    <span th:text="${ss2}"></span>
+                    <button type="submit">保存</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+
+</script>
+
+</body>
+</html>

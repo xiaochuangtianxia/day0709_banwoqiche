@@ -1,0 +1,20 @@
+
+server:
+  port: 10001
+spring:
+  application:
+    name: member-provider
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/banwoqiche?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 666888
+    type: com.alibaba.druid.pool.DruidDataSource
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.qf.java1902.pojo

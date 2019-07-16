@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/day0709_banwoqiche.iml" filepath="$PROJECT_DIR$/day0709_banwoqiche.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka_server/eureka_server.iml" filepath="$PROJECT_DIR$/eureka_server/eureka_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/houtaishouye/houtaishouye.iml" filepath="$PROJECT_DIR$/houtaishouye/houtaishouye.iml" />
+      <module fileurl="file://$PROJECT_DIR$/member_provider/member_provider.iml" filepath="$PROJECT_DIR$/member_provider/member_provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/personal_center_consumer/personal_center_consumer.iml" filepath="$PROJECT_DIR$/personal_center_consumer/personal_center_consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/personal_center_provider/personal_center_provider.iml" filepath="$PROJECT_DIR$/personal_center_provider/personal_center_provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pojo/pojo.iml" filepath="$PROJECT_DIR$/pojo/pojo.iml" />
+    </modules>
+  </component>
+</project>

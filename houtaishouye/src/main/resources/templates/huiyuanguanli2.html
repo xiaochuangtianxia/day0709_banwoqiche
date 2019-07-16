@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/demo.css">
+    <script type="text/javascript" src="js/jquery-easyui-1.6.10/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-easyui-1.6.10/jquery.easyui.min.js"></script>
+
+
+</head>
+<body>
+
+    <div data-options="region:'center',title:'',iconCls:'icon-ok'">
+        <div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+            <div title="DataGrid" style="padding:5px">
+                <table id="table1" class="easyui-datagrid"
+                       data-options="url:'huiyuanguanli2',method:'get',singleSelect:true,fit:false,fitColumns:true,pagination:true,toolbar:'#tbar1'">
+                    <thead>
+
+                    <tr>
+                        <th data-options="field:'id',align:'center'" width="150">序号</th>
+                        <th data-options="field:'account',align:'center'" width="150">账号</th>
+                        <th data-options="field:'nickname',align:'center'" width="150">昵称</th>
+                        <th data-options="field:'username',align:'center'" width="150">姓名</th>
+                        <th data-options="field:'gender',align:'center'" width="150">性别</th>
+                        <th data-options="field:'registrationDate',align:'center'" width="150">注册时间</th>
+                        <th data-options="field:'operation',align:'center'" width="150">操作</th>
+                    </tr>
+                    <!--<tr th:each="user:${users}">-->
+                        <!--<th data-options="field:'itemid',align:'center'" width="150" th:text="${user.id}">序号</th>-->
+                        <!--<th data-options="field:'productid',align:'center'" width="150" th:text="${user.account}">账号</th>-->
+                        <!--<th data-options="field:'listprice',align:'center'" width="150" th:text="${user.nickname}">昵称</th>-->
+                        <!--<th data-options="field:'unitcost',align:'center'" width="150" th:text="${user.username}">姓名</th>-->
+                        <!--<th data-options="field:'attr1',align:'center'" width="150" th:text="${user.gender}">性别</th>-->
+                        <!--<th data-options="field:'status',align:'center'" width="150" th:text="${user.registrationDate}">注册时间</th>-->
+                        <!--<th data-options="field:'caozuo',align:'center'" width="150"><a href="会员详情_我的座驾">详情</a></th>-->
+                    <!--</tr>-->
+                    </thead>
+                </table>
+
+                <div id="tbar1" align="center">
+                    <a>&nbsp<&nbsp会员管理：</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input value="账号/姓名/昵称" name="zhxmcn"/>&nbsp&nbsp&nbsp
+                    性别：<select id="gender">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                         </select>&nbsp&nbsp&nbsp&nbsp&nbsp
+                    注册时间：<input name="startTime"/>&nbsp——&nbsp<input name="endTime"/>
+                    <button class="easyui-linkbutton" data-options="onClick:query1">搜索</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function query1 () {
+        alert("11");
+        var gender=$("#gender").val();
+        $("#table1").datagrid('load',{
+            zhxmcn:$("[name='zhxmcn']").val(),
+            gender:gender,
+            startTime:$("[name='startTime']").val(),
+            endTime:$("[name='endTime']").val()
+            });
+    }
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/demo.css">
+    <script type="text/javascript" src="js/jquery-easyui-1.6.10/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-easyui-1.6.10/jquery.easyui.min.js"></script>
+
+
+</head>
+<body>
+
+<!--<div style="margin:20px 0;"></div>-->
+<div class="easyui-layout" style="width:1300px;height:900px;">
+    <div data-options="region:'north'" style="height:70px">
+   <table>
+    <tr>
+        <td width="50px"></td>
+        <td width="100px"><img src="imge/001.png" width="90px" height="50px"></td>
+        <td width="300px"><h2>“伴我汽车”管理平台</h2></td>
+        <td width="200px"></td>
+        <td width="200px">时间：<span th:text="${date2}"></span></td>
+        <td width="200px">用户：<span th:text="${name2}"></span></td>
+        <td width="300px">所属角色：<span th:text="${roleName2}"></span></td>
+        <td width="200px"><a href="index"><button>退出</button></a></td>
+        <td width="200px"></td>
+    </tr>
+   </table>
+    </div>
+
+    <div data-options="region:'south',split:true" style="height:50px;">2</div>
+    <div data-options="region:'west',split:true" title="" style="width:200px;">
+        <div class="easyui-accordion" data-options="selected:false,fit:true,border:false">
+            <div title="会员管理" style="padding:10px;">
+                <a href="huiyuanguanli"><button style="width: 200px">会员管理</button></a>
+
+                <!--<ul id="tt1" class="easyui-tree">-->
+                    <!--<li data-options="attributes:{'url':'huiyuanguanli2'}" ><span>会员管理</span></li>-->
+                <!--</ul>-->
+
+            </div>
+
+
+
+            <div title="资讯管理" data-options="selected:false" style="padding:20px;">
+                <a href="caogaoxiang"><button style="width: 200px">草稿箱</button></a><br/>
+                <a href="zixunshenhe"><button style="width: 200px">资讯审核</button></a><br/>
+                <a href="zixunfabu"><button style="width: 200px">资讯发布</button></a><br/>
+                <a href="zixunliebiao"><button style="width: 200px">资讯列表</button></a><br/>
+            </div>
+            <div title="标签定义" style="padding:20px">
+                <a href="biaoqiandingyi"><button style="width: 200px">标签定义</button></a><br/>
+            </div>
+            <div title="车型库管理" style="padding:20px">
+                <a href="pingpaiguanli"><button style="width: 200px">品牌管理</button></a><br/>
+                <a href="changshangguanli"><button style="width: 200px">厂商管理</button></a><br/>
+                <a href="chexiguanli"><button style="width: 200px">车系管理</button></a><br/>
+                <a href="chekuanguanli"><button style="width: 200px">车款管理</button></a><br/>
+                <a href="canshufengleiguanli"><button style="width: 200px">参数分类管理</button></a><br/>
+                <a href="canshuguanli"><button style="width: 200px">参数管理</button></a><br/>
+            </div>
+            <div title="自有商品管理" style="padding:20px">
+                <a href="ziyoushangpingguanli"><button style="width: 200px">自有商品管理</button></a><br/>
+            </div>
+            <div title="活动管理" style="padding:20px">
+               <a href=" huodongliebiao"><button style="width: 200px"> 活动列表</button></a><br/>
+                <a href="tuijianhuodong"><button style="width: 200px">推荐活动</button></a><br/>
+                <a href="leixinguanli"><button style="width: 200px">类型管理</button></a><br/>
+                <a href="qudaoguanli"><button style="width: 200px">渠道管理</button></a><br/>
+            </div>
+            <div title="消息管理" style="padding:20px">
+                <a href="xiaoxiguanli"><button style="width: 200px">消息管理</button></a><br/>
+            </div>
+            <div title="标签管理" style="padding:20px">
+                <a href="biaoqianguanli"><button style="width: 200px">标签管理</button></a><br/>
+            </div>
+            <div title="角色管理" style="padding:20px">
+                <a href="jiaoseguanli"><button style="width: 200px">角色管理</button></a><br/>
+            </div>
+            <div title="管理员列表" style="padding:20px">
+                <a href="guanliyuanliebiao"><button style="width: 200px">管理员列表</button></a><br/>
+            </div>
+            <div title="操作日志" style="padding:20px">
+                <a href="caozuorizhi"><button style="width: 200px">操作日志</button></a><br/>
+            </div>
+            <div title="个人中心" style="padding:20px">
+                <a href="gerenzhongxin"><button style="width: 200px">个人中心</button></a><br/>
+            </div>
+
+        </div>
+    </div>
+
+
+<div data-options="region:'center'" style="padding:5px;background:#eee;">
+    <div id="tabs" class="easyui-tabs" data-options="fit:true">
+        <!--<div title="欢迎页" style="padding:20px;display:none;">-->
+            <!--<h2>欢迎进入电商系统</h2>-->
+        <!--</div>-->
+        <!--<div title="Tab2" data-options="closable:true" style="overflow:auto;padding:20px;display:none;">-->
+        <!--tab2-->
+        <!--</div>-->
+        <!--<div title="Tab3" data-options="iconCls:'icon-reload',closable:true" style="padding:20px;display:none;">-->
+        <!--tab3-->
+        <!--</div>-->
+    </div>
+
+</div>
+
+
+<script>
+
+    $('#tt1').tree({
+        onClick: function(node){
+            alert("111");
+            console.log(node);
+            var tab=$('#tabs').tabs("getTab",node.text);
+            if(tab){//选择卡已存在，让其选中
+                $('#tabs').tabs("select",node.text);
+            }else {//选择卡不存在，则创建
+                //添加一个未选中状态的选择卡面板
+                $('#tabs').tabs('add',{
+                    title: node.text,   //设置tile
+                    selected: true,     //为true的时候，选项卡面板会被选中。
+                    closable: true,      //设置为true的时候，选项卡面板将显示一个关闭按钮，在点击的时候会关闭选项卡面板。
+                    href: node.attributes.url   //将树形节点的自定义资源地址设定为选择请求的资源地址
+                    //...
+                });
+            }
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

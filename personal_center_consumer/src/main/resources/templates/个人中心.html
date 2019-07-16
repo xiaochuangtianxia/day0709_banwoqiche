@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.6.10/demo.css">
+    <script type="text/javascript" src="js/jquery-easyui-1.6.10/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-easyui-1.6.10/jquery.easyui.min.js"></script>
+
+
+</head>
+<body>
+
+<!--<div style="margin:20px 0;"></div>-->
+<div class="easyui-layout" style="width:1300px;height:900px;">
+    <div data-options="region:'north'" style="height:70px">
+   <table>
+    <tr>
+        <td width="50px"></td>
+        <td width="100px"><img src="imge/001.png" width="90px" height="50px"></td>
+        <td width="300px"><h2>“伴我汽车”管理平台</h2></td>
+        <td width="200px"></td>
+        <td width="200px">时间：<span th:text="${date2}"></span></td>
+        <td width="200px">用户：<span th:text="${name2}"></span></td>
+        <td width="300px">所属角色：<span th:text="${roleName2}"></span></td>
+        <td width="200px"><a href="index"><button>退出</button></a></td>
+        <td width="200px"></td>
+    </tr>
+   </table>
+    </div>
+
+    <div data-options="region:'west',split:true" title="" style="width:200px;">
+        <div class="easyui-accordion" data-options="selected:false,fit:true,border:false">
+            <div title="会员管理" style="padding:10px;">
+                <a href="会员管理"><button style="width: 200px">会员管理</button></a>
+            </div>
+            <div title="资讯管理" data-options="selected:false" style="padding:20px;">
+                <a href="草稿箱"><button style="width: 200px">草稿箱</button></a><br/>
+                <a href="资讯审核"><button style="width: 200px">资讯审核</button></a><br/>
+                <a href="资讯发布"><button style="width: 200px">资讯发布</button></a><br/>
+                <a href="资讯列表"><button style="width: 200px">资讯列表</button></a><br/>
+            </div>
+            <div title="标签定义" style="padding:20px">
+                <a href="标签定义"><button style="width: 200px">标签定义</button></a><br/>
+            </div>
+            <div title="车型库管理" style="padding:20px">
+                <a href="品牌管理"><button style="width: 200px">品牌管理</button></a><br/>
+                <a href="厂商管理"><button style="width: 200px">厂商管理</button></a><br/>
+                <a href="车系管理"><button style="width: 200px">车系管理</button></a><br/>
+                <a href="车款管理"><button style="width: 200px">车款管理</button></a><br/>
+                <a href="参数分类管理"><button style="width: 200px">参数分类管理</button></a><br/>
+                <a href="参数管理"><button style="width: 200px">参数管理</button></a><br/>
+            </div>
+            <div title="自有商品管理" style="padding:20px">
+                <a href="自有商品管理"><button style="width: 200px">自有商品管理</button></a><br/>
+            </div>
+            <div title="活动管理" style="padding:20px">
+               <a href=" 活动列表"><button style="width: 200px"> 活动列表</button></a><br/>
+                <a href="推荐活动"><button style="width: 200px">推荐活动</button></a><br/>
+                <a href="类型管理"><button style="width: 200px">类型管理</button></a><br/>
+                <a href="渠道管理"><button style="width: 200px">渠道管理</button></a><br/>
+            </div>
+            <div title="消息管理" style="padding:20px">
+                <a href="消息管理"><button style="width: 200px">消息管理</button></a><br/>
+            </div>
+            <div title="标签管理" style="padding:20px">
+                <a href="标签管理"><button style="width: 200px">标签管理</button></a><br/>
+            </div>
+            <div title="角色管理" style="padding:20px">
+                <a href="角色管理"><button style="width: 200px">角色管理</button></a><br/>
+            </div>
+            <div title="管理员列表" style="padding:20px">
+                <a href="管理员列表"><button style="width: 200px">管理员列表</button></a><br/>
+            </div>
+            <div title="操作日志" style="padding:20px">
+                <a href="操作日志"><button style="width: 200px">操作日志</button></a><br/>
+            </div>
+            <div title="个人中心" style="padding:20px">
+                <a href="个人中心"><button style="width: 200px">个人中心</button></a><br/>
+            </div>
+
+        </div>
+    </div>
+    <div data-options="region:'center',title:'',iconCls:'icon-ok'">
+        <div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+            <div title="DataGrid" style="padding:5px">
+                <table class="easyui-datagrid"
+                       data-options="url:'huiyuanguanli2',method:'get',singleSelect:true,fit:false,fitColumns:true,pagination:true,toolbar:'#tbar1'">
+                    <thead>
+                    <tr>
+                        <th data-options="field:'id',align:'center'" width="150">序号</th>
+                        <th data-options="field:'account',align:'center'" width="150">账号</th>
+                        <th data-options="field:'nickname',align:'center'" width="150">昵称</th>
+                        <th data-options="field:'username',align:'center'" width="150">姓名</th>
+                        <th data-options="field:'gender',align:'center'" width="150">性别</th>
+                        <th data-options="field:'registrationDate',align:'center'" width="150">注册时间</th>
+                        <th data-options="field:'operation',align:'center'" width="150">操作</th>
+                    </tr>
+                    <!--<tr th:each="user:${users}">-->
+                        <!--<th data-options="field:'itemid',align:'center'" width="150" th:text="${user.id}">序号</th>-->
+                        <!--<th data-options="field:'productid',align:'center'" width="150" th:text="${user.account}">账号</th>-->
+                        <!--<th data-options="field:'listprice',align:'center'" width="150" th:text="${user.nickname}">昵称</th>-->
+                        <!--<th data-options="field:'unitcost',align:'center'" width="150" th:text="${user.username}">姓名</th>-->
+                        <!--<th data-options="field:'attr1',align:'center'" width="150" th:text="${user.gender}">性别</th>-->
+                        <!--<th data-options="field:'status',align:'center'" width="150" th:text="${user.registrationDate}">注册时间</th>-->
+                        <!--<th data-options="field:'caozuo',align:'center'" width="150"><a href="会员详情_我的座驾">详情</a></th>-->
+                    <!--</tr>-->
+                    </thead>
+                </table>
+
+                <div id="tbar1" align="center">
+                    <a>&nbsp<&nbsp会员管理：</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input value="账号/姓名/昵称"/>&nbsp&nbsp&nbsp
+                    性别：<select>
+                            <option>男</option>
+                            <option>女</option>
+                         </select>&nbsp&nbsp&nbsp&nbsp&nbsp
+                    注册时间：<input/>&nbsp——&nbsp<input/>
+                    <button>搜索</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function caozuo () {
+        alert("11");
+    }
+</script>
+
+
+
+</body>
+</html>

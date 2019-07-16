@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.java1902.mapper.UserMapper">
+   <resultMap id="userMap" type="com.qf.java1902.pojo.UserBean">
+       <id property="id" column="id"/>
+       <result property="username" column="username"/>
+       <result property="password" column="password"/>
+       <result property="account" column="account"/>
+       <result property="nickname" column="nickname"/>
+       <result property="gender" column="gender"/>
+       <result property="registrationDate" column="registration_date"/>
+       <result property="roleName" column="role_name"/>
+       <result property="operation" column="operation"/>
+       <result property="email" column="email"/>
+       <result property="dept" column="dept"/>
+       <result property="state" column="state"/>
+       <result property="button1" column="button1"/>
+       <result property="button2" column="button2"/>
+       <result property="button3" column="button3"/>
+   </resultMap>
+
+    <select id="findOneUserBean" resultMap="userMap">
+    SELECT
+    u.id,u.username,u.password,r.role_name
+    FROM sys_user u,user_role ur,role r
+    WHERE
+    u.id=ur.user_id AND ur.role_id=r.role_id AND u.username =#{name}
+   </select>
+
+
+
+
+
+    <select id="findAllUsers" resultMap="userMap">
+    SELECT
+    u.id,u.username,u.account,u.nickname,u.gender,u.registration_date,
+    u.role_name,u.operation,u.email,u.dept,u.state,u.button1,u.button2,u.button3
+    FROM
+    sys_user u
+    </select>
+
+    <select id="findAllUsersByState" resultMap="userMap">
+        SELECT
+        u.id,u.username,u.account,u.nickname,u.gender,u.registration_date,
+        u.role_name,u.operation,u.email,u.dept,u.state,u.button1,u.button2,u.button3
+        FROM
+        sys_user u
+        WHERE
+        u.state=#{state}
+    </select>
+
+    <select id="findAllUsersByCondition" resultMap="userMap">
+          SELECT * from sys_user WHERE
+          username=#{username} OR
+          account=#{username} OR
+          nickname=#{username} AND
+          gender=#{gender}
+    </select>
+
+
+</mapper>

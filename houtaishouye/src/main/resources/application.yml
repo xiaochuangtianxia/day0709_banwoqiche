@@ -1,0 +1,24 @@
+
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/banwoqiche?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 666888
+    type: com.alibaba.druid.pool.DruidDataSource
+  application:
+    name: houtaishouye
+  main:
+    allow-bean-definition-overriding: true
+#多个接口上调用相同服务者，会报错。加如下注解可解决
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka
+ribbon:
+  eureka:
+    enabled: true
